@@ -20,6 +20,12 @@ export const snsLinks = [
   { name: "YouTube", href: "https://www.youtube.com/@irune_official" },
 ];
 
+export const youtubeVideo = {
+  title: "irune YouTube video",
+  url: "https://youtu.be/ofK8U70WVr0?si=NLhWdOjRSKSDyNq0",
+  embedUrl: "https://www.youtube.com/embed/ofK8U70WVr0?si=NLhWdOjRSKSDyNq0",
+};
+
 export const guests = [
   { name: "THE KOZIES", image: "/images/flyer.jpg", note: "Guest act" },
   { name: "おにちゃん", image: "/images/flyer.jpg", note: "Guest act" },

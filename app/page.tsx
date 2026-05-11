@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { eventInfo, guests, site, snsLinks, tracks } from "./data";
+import { eventInfo, guests, site, snsLinks, tracks, youtubeVideo } from "./data";
 
 function ArrowIcon() {
   return (
@@ -219,15 +219,27 @@ function SocialStreaming() {
             Streaming Links Coming Soon
           </button>
         </div>
-        <div className="border border-cream/18 bg-ink/24 p-4 backdrop-blur-sm">
-          <div className="grid aspect-video place-items-center bg-black/32 text-center">
-            <div>
-              <p className="font-display text-3xl text-cream/88">YouTube</p>
-              <p className="mt-2 text-sm tracking-[0.18em] text-cream/50">
-                Embed area
-              </p>
-            </div>
+        <div className="border border-cream/18 bg-ink/24 p-3 shadow-soft backdrop-blur-sm sm:p-4">
+          <div className="relative overflow-hidden bg-black/45">
+            <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(91,24,36,0.14),rgba(27,14,12,0.18))]" />
+            <iframe
+              className="aspect-video w-full"
+              src={youtubeVideo.embedUrl}
+              title={youtubeVideo.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
+          <a
+            className="mt-4 flex items-center justify-between border-t border-cream/14 pt-4 font-display text-xl text-cream/88 transition hover:text-cream"
+            href={youtubeVideo.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>YouTube</span>
+            <ArrowIcon />
+          </a>
         </div>
       </div>
     </section>
