@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Cormorant Garamond", "Bodoni 72", "Didot", Georgia, serif;
+  --font-body: "Yu Mincho", "Hiragino Mincho ProN", "Times New Roman", serif;
+  --background: #1b0e0c;
+  --foreground: #efe2cf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 78% 8%, rgba(77, 97, 142, 0.22), transparent 22rem),
+    radial-gradient(circle at 18% 18%, rgba(208, 126, 112, 0.2), transparent 20rem),
+    linear-gradient(135deg, #1b0e0c 0%, #451820 38%, #7b4039 72%, #24100f 100%);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(239, 226, 207, 0.26);
+}
+
+.grain::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  background-image:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.08)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+.soft-vignette::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 24%, rgba(13, 5, 4, 0.42) 100%),
+    linear-gradient(180deg, rgba(27, 14, 12, 0.16), rgba(27, 14, 12, 0.72));
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 6.8rem);
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.classic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem;
+  border: 1px solid rgba(239, 226, 207, 0.72);
+  padding: 0.85rem 1.45rem;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.classic-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(239, 226, 207, 0.98);
+  background: rgba(239, 226, 207, 0.9);
+  color: #2a1110;
+}
+
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(12, 4, 3, 0.42);
+}
+
+.image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(54, 19, 18, 0.08), rgba(39, 12, 14, 0.38)),
+    radial-gradient(circle at 78% 12%, rgba(103, 122, 173, 0.22), transparent 24rem);
+}
