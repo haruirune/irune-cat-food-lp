@@ -18,9 +18,48 @@ function ArrowIcon() {
 
 function SocialMark({ name }: { name: string }) {
   return (
-    <span className="grid h-9 w-9 place-items-center border border-cream/35 font-display text-[0.7rem] uppercase text-cream/90">
-      {name === "Instagram" ? "IG" : name === "YouTube" ? "YT" : name.slice(0, 2)}
+    <span className="grid h-10 w-10 shrink-0 place-items-center border border-cream/35 text-xl text-cream/88 transition group-hover:border-cream/65 group-hover:text-cream sm:h-11 sm:w-11 sm:text-2xl">
+      <SocialIcon name={name} />
     </span>
+  );
+}
+
+function SocialIcon({ name }: { name: string }) {
+  const commonProps = {
+    "aria-hidden": true,
+    className: "h-[1em] w-[1em]",
+    fill: "currentColor",
+    viewBox: "0 0 24 24",
+  };
+
+  if (name === "Instagram") {
+    return (
+      <svg {...commonProps}>
+        <path d="M7.7 2h8.6A5.7 5.7 0 0 1 22 7.7v8.6a5.7 5.7 0 0 1-5.7 5.7H7.7A5.7 5.7 0 0 1 2 16.3V7.7A5.7 5.7 0 0 1 7.7 2Zm0 2A3.7 3.7 0 0 0 4 7.7v8.6A3.7 3.7 0 0 0 7.7 20h8.6a3.7 3.7 0 0 0 3.7-3.7V7.7A3.7 3.7 0 0 0 16.3 4H7.7Zm9.05 2.2a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7.35A4.65 4.65 0 1 1 12 16.65 4.65 4.65 0 0 1 12 7.35Zm0 2A2.65 2.65 0 1 0 12 14.65 2.65 2.65 0 0 0 12 9.35Z" />
+      </svg>
+    );
+  }
+
+  if (name === "TikTok") {
+    return (
+      <svg {...commonProps}>
+        <path d="M15.45 2c.37 3.2 2.18 5.1 5.32 5.3v3.55a8.3 8.3 0 0 1-5.22-1.64v6.7c0 3.4-2.1 6.09-5.7 6.09-3.04 0-5.38-2.04-5.38-5.08 0-3.48 3.03-5.88 6.5-5.1v3.74c-1.44-.45-2.9.38-2.9 1.76 0 1 .8 1.7 1.82 1.7 1.23 0 2.02-.78 2.02-2.3V2h3.54Z" />
+      </svg>
+    );
+  }
+
+  if (name === "YouTube") {
+    return (
+      <svg {...commonProps}>
+        <path d="M21.58 7.2a3 3 0 0 0-2.1-2.12C17.62 4.58 12 4.58 12 4.58s-5.62 0-7.48.5A3 3 0 0 0 2.42 7.2 31.15 31.15 0 0 0 1.92 12c0 1.62.17 3.25.5 4.8a3 3 0 0 0 2.1 2.12c1.86.5 7.48.5 7.48.5s5.62 0 7.48-.5a3 3 0 0 0 2.1-2.12c.33-1.55.5-3.18.5-4.8 0-1.62-.17-3.25-.5-4.8ZM10 15.54V8.46L16.15 12 10 15.54Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...commonProps}>
+      <path d="M14.23 10.16 22.64 0h-1.99l-7.3 8.82L7.52 0H.8l8.82 13.34L.8 24h1.99l7.72-9.32L16.68 24h6.72l-9.17-13.84Zm-2.73 3.3-.9-1.33L3.5 1.56h3.07l5.73 8.52.9 1.33 7.46 11.1H17.6l-6.1-9.05Z" />
+    </svg>
   );
 }
 
@@ -202,7 +241,7 @@ function SocialStreaming() {
             {snsLinks.map((link) => (
               <a
                 key={link.name}
-                className="flex items-center justify-between border border-cream/18 bg-ink/20 p-4 transition hover:border-cream/60 hover:bg-cream/10"
+                className="group flex items-center justify-between border border-cream/18 bg-ink/20 p-4 transition hover:border-cream/60 hover:bg-cream/10"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
